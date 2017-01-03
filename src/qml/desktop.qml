@@ -10,7 +10,7 @@ ApplicationWindow {
     x: 1050
     y: 30
     width: 850
-    height: 1100
+    height: 1024
     visible: true
 
     Material.accent: Material.Green
@@ -54,6 +54,7 @@ ApplicationWindow {
                 text: qsTr("Cows")
                 qmlFile: "CowsPage.qml"
                 expanded: menuLayout.expanded
+                checked: true
             }
 
             DrawerButton {
@@ -75,7 +76,6 @@ ApplicationWindow {
                 text: qsTr("Ident.")
                 qmlFile: "IdentificationPage.qml"
                 expanded: menuLayout.expanded
-                checked: true
             }
 
             DrawerButton {

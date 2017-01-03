@@ -48,6 +48,15 @@ Page {
 
             model: identificationModel
 
+            ScrollBar.vertical: ScrollBar {
+                id: scrollbar
+                stepSize: 0.01
+            }
+            Keys.onUpPressed: scrollbar.decrease()
+            Keys.onDownPressed: scrollbar.increase()
+            focus: true
+            Component.onCompleted: identificationsView.forceActiveFocus()
+
             delegate: Rectangle {
                 width: parent.width
                 implicitHeight: rowLayout.implicitHeight
@@ -69,7 +78,7 @@ Page {
                     }
                     Item {
                         Layout.fillWidth: true
-                        implicitHeight: childrenRect.height
+                        Layout.minimumHeight: childrenRect.height
 
                         TextField {
                             anchors.centerIn: parent

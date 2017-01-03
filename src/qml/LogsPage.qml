@@ -21,12 +21,12 @@ Page {
 
         ScrollBar.vertical: ScrollBar {
             id: scrollbar
-            stepSize: 0.01
+            stepSize: 0.001
         }
         Keys.onUpPressed: scrollbar.decrease()
         Keys.onDownPressed: scrollbar.increase()
         focus: true
-        Component.onCompleted: identificationsView.forceActiveFocus()
+        Component.onCompleted: logsView.forceActiveFocus()
 
         delegate: Rectangle {
             width: parent.width

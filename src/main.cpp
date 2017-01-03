@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     qmlRegisterType<LogsModel>("CowInspector", 1, 0, "LogsModel");
     qmlRegisterType<CowsModel>("CowInspector", 1, 0, "CowsModel");
-//    qmlRegisterType<IdentificationModel>("CowInspector", 1, 0, "IdentificationModel");
+    qmlRegisterType<IdentificationModel>("CowInspector", 1, 0, "IdentificationModel");
 
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine(QUrl("qml/desktop.qml"));

@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
@@ -8,37 +8,79 @@ import QtQuick.Controls.Material 2.0
 Page {
     id: root
 
-//    IdentificationModel {
-//        id: identificationModel
-//        Component.onCompleted: identificationModel.refresh()
-//    }
+    IdentificationModel {
+        id: identificationModel
+        Component.onCompleted: identificationModel.refresh()
+    }
 
-//    ListView {
-//        id: identificationsView
-//        anchors.fill: parent
+    property int rfidColumnWidth: dp(250)
+    property int cardColumnWidth: dp(150)
 
-//        model: identificationModel
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 5
 
-//        delegate: Rectangle {
-//            width: parent.width
-//            implicitHeight: rowLayout.implicitHeight
-//            color: cownumber ? "#FF9800" : "#8BC34A"
-//            RowLayout {
-//                id: rowLayout
-//                anchors.fill: parent
-//                Label {
-//                    text: rfid
-//                    Layout.minimumWidth: dp(100)
-//                }
-//                Label {
-//                    text: cardnumber
-//                    Layout.minimumWidth: dp(200)
-//                }
-//                TextField {
-//                    Layout.fillWidth: true
-//                    text: cownumber
-//                }
-//            }
-//        }
-//    }
+        RowLayout {
+            width: parent.width
+            Label {
+                Layout.minimumWidth: rfidColumnWidth
+                text: qsTr("RFID number")
+                horizontalAlignment: Text.AlignHCenter
+            }
+            Label {
+                Layout.minimumWidth: cardColumnWidth
+                text: qsTr("Card number")
+                horizontalAlignment: Text.AlignHCenter
+            }
+            Label {
+                Layout.fillWidth: true
+                text: qsTr("Cow number")
+                horizontalAlignment: Text.AlignHCenter
+            }
+        }
+
+        ListView {
+            id: identificationsView
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            spacing: -1
+            clip: true
+
+            model: identificationModel
+
+            delegate: Rectangle {
+                width: parent.width
+                implicitHeight: rowLayout.implicitHeight
+                color: cownumber ? Material.background : "#FF9800"
+                border.width: 1
+                border.color: Material.foreground
+                RowLayout {
+                    id: rowLayout
+                    anchors.fill: parent
+                    Label {
+                        text: rfid
+                        Layout.minimumWidth: rfidColumnWidth
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    Label {
+                        text: cardnumber
+                        Layout.minimumWidth: cardColumnWidth
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                        implicitHeight: childrenRect.height
+
+                        TextField {
+                            anchors.centerIn: parent
+                            text: cownumber
+                            placeholderText: qsTr("Click to assign a cow")
+                            horizontalAlignment: Text.AlignHCenter
+                        }
+                    }
+
+                }
+            }
+        }
+    }
 }

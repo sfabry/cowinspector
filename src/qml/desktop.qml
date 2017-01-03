@@ -7,10 +7,10 @@ import QtQuick.Controls.Material 2.0
 ApplicationWindow {
     id: rootWindow
     title: qsTr("Cow Inspector")
-    x: 1000
-    y: 100
-    width: 800
-    height: 900
+    x: 1050
+    y: 30
+    width: 850
+    height: 1100
     visible: true
 
     Material.accent: Material.Green
@@ -41,23 +41,25 @@ ApplicationWindow {
                 text: qsTr("Home")
                 icon: "../images/home_white.png"
                 expanded: menuLayout.expanded
+                qmlFile: "HomePage.qml"
             }
 
             DrawerButton {
                 text: qsTr("Box")
                 expanded: menuLayout.expanded
+                qmlFile: "BoxPage.qml"
             }
 
             DrawerButton {
                 text: qsTr("Cows")
                 qmlFile: "CowsPage.qml"
                 expanded: menuLayout.expanded
-                checked: true
             }
 
             DrawerButton {
                 text: qsTr("Silos")
                 expanded: menuLayout.expanded
+                qmlFile: "SilosPage.qml"
             }
 
             Item { Layout.fillHeight: true }
@@ -70,9 +72,10 @@ ApplicationWindow {
             }
 
             DrawerButton {
-                text: qsTr("Identification")
-                qmlFile: "Identification.qml"
+                text: qsTr("Ident.")
+                qmlFile: "IdentificationPage.qml"
                 expanded: menuLayout.expanded
+                checked: true
             }
 
             DrawerButton {

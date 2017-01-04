@@ -9,6 +9,8 @@
 #include "logsmodel.h"
 #include "cowsmodel.h"
 #include "identificationModel.h"
+#include "cowdaysmodel.h"
+#include "cowmealsmodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,6 +18,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<LogsModel>("CowInspector", 1, 0, "LogsModel");
     qmlRegisterType<CowsModel>("CowInspector", 1, 0, "CowsModel");
     qmlRegisterType<IdentificationModel>("CowInspector", 1, 0, "IdentificationModel");
+    qmlRegisterType<CowDaysModel>("CowInspector", 1, 0, "CowDaysModel");
+    qmlRegisterType<CowMealsModel>("CowInspector", 1, 0, "CowMealsModel");
 
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine(QUrl("qml/desktop.qml"));

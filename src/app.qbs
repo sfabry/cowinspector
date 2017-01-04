@@ -35,6 +35,10 @@ Product {
     }
 
     files: [
+        "cowdaysmodel.cpp",
+        "cowdaysmodel.h",
+        "cowmealsmodel.cpp",
+        "cowmealsmodel.h",
         "cowinspector.cpp",
         "cowinspector.h",
         "cowsmodel.cpp",

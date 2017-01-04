@@ -7,9 +7,9 @@ import QtQuick.Controls.Material 2.0
 ApplicationWindow {
     id: rootWindow
     title: qsTr("Cow Inspector")
-    x: 1050
+    x: 650
     y: 30
-    width: 850
+    width: 1250
     height: 1024
     visible: true
 

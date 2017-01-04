@@ -92,6 +92,11 @@ Page {
         }
 
         // Details page
+        CowDetailPage {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            cow: cowsView.selectedCow
+        }
     }
 
 }

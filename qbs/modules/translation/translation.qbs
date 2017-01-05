@@ -60,8 +60,8 @@ Module {
                 file.close();
             }
 
-            var languages = ["fr", "zh_CN", "cs"]
-            var trPath = project.sourceDirectory + "/maestro/translations/"
+            var languages = ["fr"]
+            var trPath = project.sourceDirectory + "/translations/"
             var args = []
             args.push(output.filePath)
             for (i in languages) {

@@ -3,7 +3,7 @@ import qbs.TextFile
 import qbs.FileInfo
 
 Product {
-    type: ["application"]
+    type: ["application", "translation_pro"]
     name: "Desktop Application"
     targetName: qbs.buildVariant == "debug" ? "cowinspector_debug" : "cowinspector"
     consoleApplication: false

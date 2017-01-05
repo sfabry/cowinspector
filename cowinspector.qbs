@@ -7,7 +7,7 @@ Project {
     minimumQbsVersion: "1.4"
     qbsSearchPaths: "qbs"
 
-    property bool generateTranslations: false
+    property bool generateTranslations: true
     property bool removeOldTranslations: false
 
     property bool buildTraceInRelease: true

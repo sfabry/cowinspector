@@ -21,6 +21,13 @@ int main(int argc, char *argv[])
     qmlRegisterType<CowDaysModel>("CowInspector", 1, 0, "CowDaysModel");
     qmlRegisterType<CowMealsModel>("CowInspector", 1, 0, "CowMealsModel");
 
+    const QString& locale("fr");
+    QTranslator translator;
+    qApp->installTranslator(&translator);
+    QString trpath = QCoreApplication::applicationDirPath() + QStringLiteral("/../translations");
+    translator.load(QStringLiteral("cowinspector_") + locale, trpath);
+    qApp->setProperty("qtc_locale", locale);
+
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine(QUrl("qml/desktop.qml"));
     engine.rootContext()->setContextProperty("ci", CowInspector::instance());

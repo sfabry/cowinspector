@@ -26,9 +26,9 @@ Module {
 
             // Little hack, read qt lib path from a special Artifact created in Core plugin
             cmd.vcredistPath = FileInfo.toWindowsSeparators(product.sourceDirectory) + "\\..\\microsoft"
-            cmd.qtBinPath = product.moduleProperty("Qt.core", "binPath");
-            cmd.qtPluginPath = product.moduleProperty("Qt.core", "pluginPath");
-            cmd.qtQmlPath = product.moduleProperty("Qt.core", "binPath") + "\\..\\qml";
+            cmd.qtBinPath = "C:\\Qt\\5.7\\msvc2013_64\\bin";
+            cmd.qtPluginPath = "C:\\Qt\\5.7\\msvc2013_64\\plugins";
+            cmd.qtQmlPath = "C:\\Qt\\5.7\\msvc2013_64\\qml";
             cmd.appId = product.appId
             cmd.setupExtension = product.setupExtension
 
@@ -62,6 +62,7 @@ Module {
                     if (!qtmodule.startsWith("Qt.ax")) cmd.qt_depends.push(qtmodule.charAt(3).toUpperCase() + qtmodule.slice(4));
                 }
             }
+            cmd.qt_depends.push("QuickTemplates2")
 
             cmd.sourceCode = function() {
                 var file = new TextFile(filePath, TextFile.WriteOnly);
@@ -71,17 +72,17 @@ Module {
                     file.writeLine("ArchitecturesAllowed=x64");
                 }
                 file.writeLine("AppId=" + appId);
-                file.writeLine("AppName=Maestro");
+                file.writeLine("AppName=CowInspector");
                 file.writeLine("AppVersion=" + version);
                 file.writeLine("AppPublisher=X-Ray Imaging Solutions (XRIS)");
                 file.writeLine("AppPublisherURL=http://www.xris.eu/");
                 file.writeLine("AppSupportURL=http://www.xris.eu/");
                 file.writeLine("AppUpdatesURL=http://www.xris.eu/");
                 file.writeLine("AllowNoIcons=yes");
-                file.writeLine("DefaultDirName=\{sd\}\\Maestro" + setupExtension);
-                file.writeLine("DefaultGroupName=Maestro" + setupExtension);
+                file.writeLine("DefaultDirName=\{sd\}\\CowInspector" + setupExtension);
+                file.writeLine("DefaultGroupName=CowInspector" + setupExtension);
                 file.writeLine("OutputDir=.");
-                file.writeLine("OutputBaseFilename=Maestro_setup" + setupExtension);
+                file.writeLine("OutputBaseFilename=CowInspector_setup" + setupExtension);
                 file.writeLine("Compression=lzma");
                 file.writeLine("SolidCompression=yes");
                 file.writeLine("ChangesAssociations=yes");
@@ -114,22 +115,14 @@ Module {
                 file.writeLine("Type: filesandordirs; Name: \"\{app\}\\manuals\"");
                 file.writeLine("");
                 file.writeLine("[Icons]");
-                file.writeLine("Name: \"\{group\}\\Maestro" + setupExtension + "\"; Filename: \"\{app\}\\bin\\maestro.exe\"");
-                file.writeLine("Name: \"\{group\}\\{cm:ProgramOnTheWeb,Maestro\}\"; Filename: \"http://www.xris.eu/\"");
-                file.writeLine("Name: \"\{group\}\\{cm:UninstallProgram,Maestro\}\"; Filename: \"\{uninstallexe\}\"");
-                file.writeLine("Name: \"\{commondesktop\}\\Maestro\"; Filename: \"\{app\}\\bin\\Maestro.exe\"; WorkingDir: \"\{app\}\\bin\"; Tasks: desktopicon");
-                file.writeLine("Name: \"\{userappdata\}\\Microsoft\\Internet Explorer\\Quick Launch\\Maestro" + setupExtension + "\"; Filename: \"\{app\}\\bin\\Maestro.exe\"; WorkingDir: \"\{app\}\\bin\"; Tasks: quicklaunchicon");
-                file.writeLine("");
-                file.writeLine("[Registry]");
-                file.writeLine("Root: HKCR; Subkey: \".tif\"; ValueType: string; ValueName: \"\"; ValueData: \"MaestroFile\"; Flags: uninsdeletevalue");
-                file.writeLine("Root: HKCR; Subkey: \".tiff\"; ValueType: string; ValueName: \"\"; ValueData: \"MaestroFile\"; Flags: uninsdeletevalue");
-                file.writeLine("Root: HKCR; Subkey: \"MaestroFile\"; ValueType: string; ValueName: \"\"; ValueData: \"Maestro File\"; Flags: uninsdeletekey");
-                file.writeLine("Root: HKCR; Subkey: \"MaestroFile\\DefaultIcon\"; ValueType: string; ValueName: \"\"; ValueData: \"\{app\}\\bin\\maestro.exe,0\"");
-                file.writeLine("Root: HKCR; Subkey: \"MaestroFile\\shell\\open\\command\"; ValueType: string; ValueName: \"\"; ValueData: \"\"\"\{app\}\\bin\\maestro.exe\"\" \"\"%1\"\"\"");
+                file.writeLine("Name: \"\{group\}\\CowInspector" + setupExtension + "\"; Filename: \"\{app\}\\bin\\CowInspector.exe\"");
+                file.writeLine("Name: \"\{group\}\\{cm:ProgramOnTheWeb,CowInspector\}\"; Filename: \"http://www.xris.eu/\"");
+                file.writeLine("Name: \"\{group\}\\{cm:UninstallProgram,CowInspector\}\"; Filename: \"\{uninstallexe\}\"");
+                file.writeLine("Name: \"\{commondesktop\}\\CowInspector\"; Filename: \"\{app\}\\bin\\CowInspector.exe\"; WorkingDir: \"\{app\}\\bin\"; Tasks: desktopicon");
+                file.writeLine("Name: \"\{userappdata\}\\Microsoft\\Internet Explorer\\Quick Launch\\CowInspector" + setupExtension + "\"; Filename: \"\{app\}\\bin\\CowInspector.exe\"; WorkingDir: \"\{app\}\\bin\"; Tasks: quicklaunchicon");
                 file.writeLine("");
                 file.writeLine("[Run]");
-                file.writeLine("Filename: \"\{app\}\\vcredist_" + (architecture === "x86_64" ? "x64" : "x86") + ".exe\"; StatusMsg: \"Installing Microsoft redistributables\"; Parameters: \"/q\";");
-                file.writeLine("Filename: \"\{app\}\\bin\\maestro.exe\"; WorkingDir: \"\{app\}\"; Description: \"\{cm:LaunchProgram,Maestro\}\"; Flags: nowait postinstall skipifsilent");
+                file.writeLine("Filename: \"\{app\}\\bin\\CowInspector.exe\"; WorkingDir: \"\{app\}\"; Description: \"\{cm:LaunchProgram,CowInspector\}\"; Flags: nowait postinstall skipifsilent");
                 file.writeLine("");
                 file.writeLine("[Files]");
                 file.writeLine("Source: ..\\translations\\*.qm; DestDir: \{app\}\\translations; Flags: skipifsourcedoesntexist");
@@ -151,7 +144,6 @@ Module {
                 file.writeLine("Source: " + qtPluginPath + "\\sqldrivers\\qsqlite.dll; DestDir: \{app\}\\bin\\sqldrivers; Flags: ignoreversion recursesubdirs createallsubdirs");
                 file.writeLine("Source: " + qtPluginPath + "\\imageformats\\qjpeg.dll; DestDir: \{app\}\\bin\\imageformats; Flags: ignoreversion recursesubdirs createallsubdirs");
                 file.writeLine("");
-                file.writeLine("Source: " + vcredistPath + "\\MSVC2013\\" + (architecture === "x86" ? "vcredist_x86.exe" : "vcredist_x64.exe") + "; DestDir: \{app\}; Flags: deleteafterinstall");
 
                 file.close();
             }

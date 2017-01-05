@@ -10,7 +10,6 @@ Product  {
     condition: qbs.buildVariant == "release" && Environment.getEnv("path").contains("miktex")
 
     Depends { name: "innosetup" }
-    Depends { name: "Build Tag" }
 
     Group {
         fileTagsFilter: "maestro_innosetup"

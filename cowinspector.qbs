@@ -19,7 +19,8 @@ Project {
     property string configInstall: "../../config"
 
     references: [
-        "src/app.qbs"
+        "src/app.qbs",
+        "installers/cowinspector.qbs"
     ]
 
     Product {

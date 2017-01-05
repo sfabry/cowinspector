@@ -15,7 +15,7 @@ void CowMealsModel::refresh()
     if (!db.isOpen()) return;
 
     QSqlQuery query(db);
-    query.prepare("select box, fooda, foodb, entry, exit from meals where cow = :cow order by id desc");
+    query.prepare("select box, fooda, foodb, entry, exit from meals where cow = :cow order by id desc limit 250");
     query.bindValue(":cow", m_cowNumber);
     if (!query.exec()) qWarning() << tr("[CowMealsModel query error] %1").arg(query.lastError().text());
     else this->setQuery(query);

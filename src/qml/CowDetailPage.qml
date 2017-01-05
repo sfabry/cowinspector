@@ -26,10 +26,129 @@ Page {
     property int entryColumnWidth: 200
     property int exitColumnWidth: 200
 
+    property bool editMode: false
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 5
         spacing: 10
+
+        RowLayout {
+            spacing: 10
+            Label {
+                text: root.cow
+                font.pixelSize: sp(25)
+                Layout.minimumWidth: dp(50)
+                font.underline: true
+            }
+
+            IconButton {
+                id: editButton
+                icon: "../images/edit.png"
+                enabled: root.cow > 0
+                onClicked: root.editMode = true
+                visible: !root.editMode
+            }
+
+            IconButton {
+                id: cancelButton
+                icon: "../images/reject.png"
+                visible: root.editMode
+                onClicked: {
+                    cowDaysModel.refresh()
+                    root.editMode = false
+                }
+            }
+
+            IconButton {
+                id: validateButton
+                icon: "../images/accept.png"
+                visible: root.editMode
+                onClicked: {
+                    cowDaysModel.commitChanges()
+                    root.editMode = false
+                }
+            }
+        }
+
+        RowLayout {
+            GridLayout {
+                Layout.fillWidth: true
+                columns: 2
+                Label {
+                    text: qsTr("Food allocation A :")
+                }
+                SpinBox {
+                    enabled: root.editMode
+                    value: cowDaysModel.allocA
+                    onValueChanged: cowDaysModel.setAllocA(value)
+                    from: -1
+                    to: 99999
+                    stepSize: 500
+                    editable: true
+                }
+                Label {
+                    text: qsTr("Food allocation B :")
+                }
+                SpinBox {
+                    enabled: root.editMode
+                    value: cowDaysModel.allocB
+                    onValueChanged: cowDaysModel.setAllocB(value)
+                    from: -1
+                    to: 99999
+                    stepSize: 500
+                    editable: true
+                }
+            }
+
+            Item { Layout.fillWidth: true }
+
+            GridLayout {
+                Layout.fillWidth: true
+                columns: 2
+
+                Label {
+                    text: qsTr("Meals count :")
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Meal number, if set to -1 will be computed automatically from food allocation")
+                }
+                SpinBox {
+                    enabled: root.editMode
+                    value: cowDaysModel.mealCount
+                    onValueChanged: cowDaysModel.setMealCount(value)
+                    from: -1
+                    to: 99
+                    stepSize: 1
+                    editable: true
+                }
+
+                Label {
+                    text: qsTr("Meals delay (min) :")
+                }
+                SpinBox {
+                    enabled: root.editMode
+                    value: cowDaysModel.mealDelay
+                    onValueChanged: cowDaysModel.setMealDelay(value)
+                    from: -1
+                    to: 999
+                    stepSize: 30
+                    editable: true
+                }
+
+                Label {
+                    text: qsTr("Eat speed (gr/s) :")
+                }
+                SpinBox {
+                    enabled: root.editMode
+                    value: cowDaysModel.eatSpeed
+                    onValueChanged: cowDaysModel.setEatSpeed(value)
+                    from: -1
+                    to: 99
+                    stepSize: 1
+                    editable: true
+                }
+            }
+        }
 
         RowLayout {
             width: parent.width

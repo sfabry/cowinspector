@@ -19,6 +19,16 @@ Page {
         cowNumber: root.cow
     }
 
+    function pad2(number) {
+         return (number < 10 ? '0' : '') + number
+    }
+    function dateToString(day) {
+        return day.getFullYear() + "." + pad2(day.getMonth() + 1) + "." + pad2(day.getDate())
+    }
+    function timeToString(day) {
+        return pad2(day.getHours()) + ":" + pad2(day.getMinutes()) + ":" + pad2(day.getSeconds())
+    }
+
     property int dayColumnWidth: 200
     property int foodaColumnWidth: 100
     property int foodbColumnWidth: 100
@@ -202,7 +212,7 @@ Page {
                     id: rowLayout
                     anchors.fill: parent
                     Label {
-                        text: day
+                        text: dateToString(day)
                         Layout.minimumWidth: dayColumnWidth
                         horizontalAlignment: Text.AlignHCenter
                     }
@@ -283,12 +293,12 @@ Page {
                     id: rowLayout2
                     anchors.fill: parent
                     Label {
-                        text: entry
+                        text: dateToString(entry) + " - " + timeToString(entry)
                         Layout.minimumWidth: entryColumnWidth
                         horizontalAlignment: Text.AlignHCenter
                     }
                     Label {
-                        text: exit
+                        text: dateToString(exit) + " - " + timeToString(exit)
                         Layout.minimumWidth: exitColumnWidth
                         horizontalAlignment: Text.AlignHCenter
                     }

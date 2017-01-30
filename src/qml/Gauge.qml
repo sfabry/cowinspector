@@ -19,7 +19,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.margins: 1
         color: value / total > 0.75 ? "green" : "orange"
-        width: Math.min(parent.width, parent.width * value / total)
+        width: Math.min(parent.width - 2, parent.width * value / total)
     }
 
     Label {

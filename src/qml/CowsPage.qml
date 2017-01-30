@@ -11,6 +11,7 @@ Page {
 
     CowsModel {
         id: cowsModel
+        showUnallocated: true
     }
 
 //    Component.onCompleted: cowsModel.refresh()

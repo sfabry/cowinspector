@@ -37,6 +37,7 @@ Page {
     property int exitColumnWidth: 200
 
     property bool editMode: false
+    onCowChanged: editMode = false
 
     ColumnLayout {
         anchors.fill: parent

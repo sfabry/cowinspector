@@ -26,77 +26,77 @@
 <context>
     <name>CowDetailPage</name>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="89"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="90"/>
         <source>Food allocation A :</source>
         <translation>Attribution aliment A :</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="101"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="102"/>
         <source>Food allocation B :</source>
         <translation>Attribution aliment B :</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="121"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="122"/>
         <source>Meals count :</source>
         <translation>Nombre de repas :</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="123"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="124"/>
         <source>Meal number, if set to -1 will be computed automatically from food allocation</source>
         <translation>Nombre de repas, sin -1 sera calculé automatique en fonction de la quantité d&apos;aliment attribuée</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="136"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="137"/>
         <source>Meals delay (min) :</source>
         <translation>Intervalle entre deux repas (min) :</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="149"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="150"/>
         <source>Eat speed (gr/s) :</source>
         <translation>Vitesse d&apos;ingestion (gr/s) :</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="167"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="168"/>
         <source>Day</source>
         <translation>Date</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="172"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="173"/>
         <source>Total Food A</source>
         <translation>Total aliment A</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="177"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="178"/>
         <source>Total Food B</source>
         <translation>Total aliment B</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="182"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="183"/>
         <source>Meal count</source>
         <translation>Nombre de repas</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="243"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="244"/>
         <source>Entry</source>
         <translation>Entrée</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="248"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="249"/>
         <source>Exit</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="253"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="254"/>
         <source>Box</source>
         <translation>Box</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="258"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="259"/>
         <source>Food A</source>
         <translation>aliment A</translation>
     </message>
     <message>
-        <location filename="../../src/qml/CowDetailPage.qml" line="263"/>
+        <location filename="../../src/qml/CowDetailPage.qml" line="264"/>
         <source>Food B</source>
         <translation>aliment B</translation>
     </message>
@@ -112,15 +112,20 @@
 <context>
     <name>CowsModel</name>
     <message>
-        <location filename="../../src/cowsmodel.cpp" line="29"/>
+        <location filename="../../src/cowsmodel.cpp" line="30"/>
         <source>[CowsModel query error] %1</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../../src/cowsmodel.cpp" line="66"/>
+        <source>[CowsModel::setCowAllocation query error] %1 - %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CowsPage</name>
     <message>
-        <location filename="../../src/qml/CowsPage.qml" line="26"/>
+        <location filename="../../src/qml/CowsPage.qml" line="27"/>
         <source>Day Summary</source>
         <translation>Résumé journée</translation>
     </message>
@@ -128,9 +133,23 @@
 <context>
     <name>HomePage</name>
     <message>
-        <location filename="../../src/qml/HomePage.qml" line="13"/>
         <source>To come...</source>
-        <translation>Arrive bientôt...</translation>
+        <translation type="vanished">Arrive bientôt...</translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/HomePage.qml" line="32"/>
+        <source>Day Summary</source>
+        <translation type="unfinished">Résumé journée</translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/HomePage.qml" line="104"/>
+        <source>A: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/HomePage.qml" line="153"/>
+        <source>B: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -236,12 +255,12 @@
         <translation>Démarrer</translation>
     </message>
     <message>
-        <location filename="../../src/qml/desktop.qml" line="48"/>
+        <location filename="../../src/qml/desktop.qml" line="49"/>
         <source>Box</source>
         <translation>Box</translation>
     </message>
     <message>
-        <location filename="../../src/qml/desktop.qml" line="54"/>
+        <location filename="../../src/qml/desktop.qml" line="55"/>
         <source>Cows</source>
         <translation>Vaches</translation>
     </message>

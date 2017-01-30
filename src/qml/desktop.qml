@@ -42,6 +42,7 @@ ApplicationWindow {
                 icon: "../images/home_white.png"
                 expanded: menuLayout.expanded
                 qmlFile: "HomePage.qml"
+                checked: true
             }
 
             DrawerButton {
@@ -54,7 +55,6 @@ ApplicationWindow {
                 text: qsTr("Cows")
                 qmlFile: "CowsPage.qml"
                 expanded: menuLayout.expanded
-                checked: true
             }
 
             DrawerButton {

@@ -8,7 +8,7 @@ CowsModel::CowsModel(QObject *parent) :
   , m_summaryDate(QDate::currentDate().addDays(-1))
 {
     // TODO_M: temp hack to get some data displayed by default
-    m_summaryDate = QDate(2016, 12, 9);
+//    m_summaryDate = QDate(2016, 12, 9);
 
     QTimer::singleShot(250, this, &CowsModel::refresh);
 }

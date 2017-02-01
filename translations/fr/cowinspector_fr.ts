@@ -159,6 +159,16 @@
         <source>[IdentificationModel query error] %1</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../../src/identificationModel.cpp" line="41"/>
+        <source>[IdentificationModel UPDATE identification query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/identificationModel.cpp" line="46"/>
+        <source>[IdentificationModel insert into foodallocation query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IdentificationPage</name>

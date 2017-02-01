@@ -11,6 +11,9 @@ public:
     explicit IdentificationModel(QObject *parent = 0);
     void refresh() override;
 
+public slots:
+    void assignCow(int cow, const QString &rfid);
+
 };
 
 #endif // IDENTIFICATIONMODEL_H

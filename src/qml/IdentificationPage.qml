@@ -85,6 +85,9 @@ Page {
                             text: cownumber
                             placeholderText: qsTr("Click to assign a cow")
                             horizontalAlignment: Text.AlignHCenter
+                            onEditingFinished: {
+                                identificationModel.assignCow(text, rfid)
+                            }
                         }
                     }
 

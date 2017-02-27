@@ -134,7 +134,7 @@
     <name>HomePage</name>
     <message>
         <source>To come...</source>
-        <translation type="vanished">Arrive bientôt...</translation>
+        <translation type="obsolete">Arrive bientôt...</translation>
     </message>
     <message>
         <location filename="../../src/qml/HomePage.qml" line="32"/>

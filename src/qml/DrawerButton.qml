@@ -35,5 +35,20 @@ Button {
              width: dp(72)
              fillMode: Image.PreserveAspectFit
          }
+
+         Text {
+             visible: control.icon === ""
+             anchors.verticalCenter: parent.verticalCenter
+             anchors.left: parent.left
+             anchors.leftMargin: dp(12)
+             width: dp(72)
+
+             text: control.text.substring(0, 1)
+             horizontalAlignment: Text.AlignHCenter
+             verticalAlignment: Text.AlignVCenter
+             color: "white"
+             font.pixelSize: sp(50)
+             font.bold: true
+         }
      }
 }

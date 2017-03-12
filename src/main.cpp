@@ -11,6 +11,7 @@
 #include "identificationModel.h"
 #include "cowdaysmodel.h"
 #include "cowmealsmodel.h"
+#include "boxmodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +21,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IdentificationModel>("CowInspector", 1, 0, "IdentificationModel");
     qmlRegisterType<CowDaysModel>("CowInspector", 1, 0, "CowDaysModel");
     qmlRegisterType<CowMealsModel>("CowInspector", 1, 0, "CowMealsModel");
+    qmlRegisterType<BoxModel>("CowInspector", 1, 0, "BoxModel");
 
     const QString& locale("fr");
     QTranslator translator;

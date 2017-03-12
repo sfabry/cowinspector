@@ -8,9 +8,45 @@ import QtQuick.Controls.Material 2.0
 Page {
     id: root
 
-    Label {
-        anchors.centerIn: parent
-        text: qsTr("To come...")
+    BoxModel {
+        id: box1
+        number: 1
+    }
+
+    BoxModel {
+        id: box2
+        number: 2
+    }
+
+    BoxModel {
+        id: box3
+        number: 3
+    }
+
+    BoxModel {
+        id: box4
+        number: 4
+    }
+
+    RowLayout {
+        anchors.fill: parent
+        anchors.margins: 15
+
+        BoxItem {
+            boxModel: box1
+        }
+
+        BoxItem {
+            boxModel: box2
+        }
+
+        BoxItem {
+            boxModel: box3
+        }
+
+        BoxItem {
+            boxModel: box4
+        }
     }
 
 }

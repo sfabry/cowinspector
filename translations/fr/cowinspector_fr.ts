@@ -2,11 +2,73 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
+    <name>BoxModel</name>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="22"/>
+        <source>[BoxModel::refresh query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="23"/>
+        <source>[BoxModel::refresh returned no results for box number : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="58"/>
+        <source>[BoxModel::setName query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="80"/>
+        <source>[BoxModel::setIdleStart1 query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="102"/>
+        <source>[BoxModel::setIdleStop1 query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="124"/>
+        <source>[BoxModel::setIdleStart2 query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="146"/>
+        <source>[BoxModel::setIdleStop2 query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="168"/>
+        <source>[BoxModel::setFoodSpeedA query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="190"/>
+        <source>[BoxModel::setFoodSpeedB query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="212"/>
+        <source>[BoxModel::setCalibrationDuration query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="234"/>
+        <source>[BoxModel::setMealMinimum query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="256"/>
+        <source>[BoxModel::setDetectionDelay query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BoxPage</name>
     <message>
-        <location filename="../../src/qml/BoxPage.qml" line="13"/>
         <source>To come...</source>
-        <translation>Arrive bientôt...</translation>
+        <translation type="vanished">Arrive bientôt...</translation>
     </message>
 </context>
 <context>
@@ -265,7 +327,7 @@
         <translation>Démarrer</translation>
     </message>
     <message>
-        <location filename="../../src/qml/desktop.qml" line="49"/>
+        <location filename="../../src/qml/desktop.qml" line="48"/>
         <source>Box</source>
         <translation>Box</translation>
     </message>

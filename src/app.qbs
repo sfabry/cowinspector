@@ -37,6 +37,8 @@ Product {
     files: [
         "boxmodel.cpp",
         "boxmodel.h",
+        "boxstatsmodel.cpp",
+        "boxstatsmodel.h",
         "cowdaysmodel.cpp",
         "cowdaysmodel.h",
         "cowmealsmodel.cpp",

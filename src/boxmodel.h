@@ -3,6 +3,7 @@
 
 #include <QTime>
 #include "querymodel.h"
+#include "boxstatsmodel.h"
 
 class BoxModel : public QueryModel
 {
@@ -41,6 +42,7 @@ public:
     QTime newDayTime()          const { return m_newDayTime;            }
 
     static QTime globalNewDayTime();
+    Q_INVOKABLE BoxStatsModel* statsModel();
 
 public slots:
     void setNumber(int number);
@@ -100,6 +102,8 @@ private:
     QDateTime m_lastConnected;
     QTime m_newDayTime;
     static QTime m_globalNewDayTime;
+
+    BoxStatsModel* m_statModel;
 };
 
 

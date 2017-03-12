@@ -19,6 +19,7 @@ class BoxModel : public QueryModel
     Q_PROPERTY(int mealMinimum READ mealMinimum WRITE setMealMinimum NOTIFY mealMinimumChanged)
     Q_PROPERTY(int detectionDelay READ detectionDelay WRITE setDetectionDelay NOTIFY detectionDelayChanged)
     Q_PROPERTY(QDateTime lastConnected READ lastConnected NOTIFY lastConnectedChanged)
+    Q_PROPERTY(QTime newDayTime READ newDayTime WRITE setNewDayTime NOTIFY newDayTimeChanged)
 
 
 public:
@@ -37,6 +38,9 @@ public:
     int mealMinimum()           const { return m_mealMinimum;           }
     int detectionDelay()        const { return m_detectionDelay;        }
     QDateTime lastConnected()   const { return m_lastConnected;         }
+    QTime newDayTime()          const { return m_newDayTime;            }
+
+    static QTime globalNewDayTime();
 
 public slots:
     void setNumber(int number);
@@ -50,6 +54,7 @@ public slots:
     void setCalibrationDuration(int calibrationDuration);
     void setMealMinimum(int mealMinimum);
     void setDetectionDelay(int detectionDelay);
+    void setNewDayTime(QTime newDayTime);
 
 signals:
     void numberChanged(int number);
@@ -64,6 +69,7 @@ signals:
     void mealMinimumChanged(int mealMinimum);
     void detectionDelayChanged(int detectionDelay);
     void lastConnectedChanged(QDateTime lastConnected);
+    void newDayTimeChanged(QTime newDayTime);
 
 private:
     void updateName(QString name);
@@ -77,6 +83,7 @@ private:
     void updateMealMinimum(int mealMinimum);
     void updateDetectionDelay(int detectionDelay);
     void updateLastConnected(QDateTime lastConnected);
+    void updateNewDayTime(QTime newDayTime);
 
 private:
     int m_number = -1;
@@ -91,6 +98,8 @@ private:
     int m_mealMinimum = 100;
     int m_detectionDelay = 60;
     QDateTime m_lastConnected;
+    QTime m_newDayTime;
+    static QTime m_globalNewDayTime;
 };
 
 

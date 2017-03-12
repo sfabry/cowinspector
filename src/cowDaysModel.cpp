@@ -3,21 +3,21 @@
 #include <QtDebug>
 #include <QtSql>
 
+#include "boxmodel.h"
+
 CowDaysModel::CowDaysModel(QObject *parent) :
     QueryModel(parent)
 {
-    QTimer::singleShot(250, this, &CowDaysModel::refresh);
 }
 
-// TODO_M: Where to read the time of the beginning of the day : see later with box page
 void CowDaysModel::refresh()
 {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) return;
 
     QSqlQuery query(db);
-    query.prepare("select count(cow) as mealcount, sum(fooda) as sa, sum(foodb) as sb, date(entry - time '05:00:00') as day "
-                  "from meals where cow = :cow group by day order by day desc limit 15");
+    query.prepare(QString("select count(cow) as mealcount, sum(fooda) as sa, sum(foodb) as sb, date(entry - time '%1') as day "
+                  "from meals where cow = :cow group by day order by day desc limit 15").arg(BoxModel::globalNewDayTime().toString("hh:mm:ss")));
     query.bindValue(":cow", m_cowNumber);
     if (!query.exec()) qWarning() << tr("[CowDaysModel query error] %1").arg(query.lastError().text());
     else this->setQuery(query);
@@ -25,7 +25,7 @@ void CowDaysModel::refresh()
     QSqlQuery query2(db);
     query2.prepare("select fooda, foodb, mealcount, mealdelay, eatspeed from foodallocation where cow = :cow order by id desc limit 1");
     query2.bindValue(":cow", m_cowNumber);
-    if (!query2.exec() || !query2.next()) qWarning() << tr("[Food allocation query error] %1").arg(query2.lastError().text());
+    if (!query2.exec() || !query2.next()) qWarning() << tr("[CowDaysModel query2 error] %1").arg(query2.lastError().text());
     else {
         setAllocA(query2.value(0).toInt());
         setAllocB(query2.value(1).toInt());

@@ -28,24 +28,58 @@ Page {
         number: 4
     }
 
-    RowLayout {
+    ColumnLayout {
         anchors.fill: parent
         anchors.margins: 15
+        spacing: 20
 
-        BoxItem {
-            boxModel: box1
+        RowLayout {
+            Label {
+                text: qsTr("All boxes new day time : ")
+            }
+            TextField {
+                inputMethodHints: Qt.ImhTime
+                text: box1.newDayTime.toTimeString()
+                horizontalAlignment: TextInput.AlignHCenter
+                onEditingFinished: {
+                    var newDayDate = Date.fromLocaleTimeString(Qt.locale(), text, "hh:mm:ss")
+                    box1.setNewDayTime(newDayDate)
+                    box2.setNewDayTime(newDayDate)
+                    box3.setNewDayTime(newDayDate)
+                    box4.setNewDayTime(newDayDate)
+                }
+            }
         }
 
-        BoxItem {
-            boxModel: box2
+        Label {
+            visible: (box1.newDayTime.getTime() !== box2.newDayTime.getTime())
+                     || (box2.newDayTime.getTime() !== box3.newDayTime.getTime())
+                     || (box3.newDayTime.getTime() !== box4.newDayTime.getTime())
+            Layout.fillWidth: true
+            horizontalAlignment: TextField.AlignHCenter
+            text: qsTr("CAUTION : All boxes do not have the same new day time, please change above to solve !")
+            color: "red"
+            font.pixelSize: sp(30)
         }
 
-        BoxItem {
-            boxModel: box3
-        }
+        RowLayout {
+            Layout.fillWidth: true
 
-        BoxItem {
-            boxModel: box4
+            BoxItem {
+                boxModel: box1
+            }
+
+            BoxItem {
+                boxModel: box2
+            }
+
+            BoxItem {
+                boxModel: box3
+            }
+
+            BoxItem {
+                boxModel: box4
+            }
         }
     }
 

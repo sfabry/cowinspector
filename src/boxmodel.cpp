@@ -3,6 +3,8 @@
 #include <QtDebug>
 #include <QtSql>
 
+QTime BoxModel::m_globalNewDayTime = QTime();
+
 BoxModel::BoxModel(QObject *parent) :
     QueryModel(parent)
 {
@@ -16,7 +18,7 @@ void BoxModel::refresh()
     if (!db.isOpen()) return;
 
     QSqlQuery query(db);
-    query.prepare("select boxname, idlestart1, idlestop1, idlestart2, idlestop2, foodspeeda, foodspeedb, calibrationtime, mealminimum, detectiondelay, lastconnected "
+    query.prepare("select boxname, idlestart1, idlestop1, idlestart2, idlestop2, foodspeeda, foodspeedb, calibrationtime, mealminimum, detectiondelay, lastconnected, newdaytime "
                   "from box where boxnumber = :boxnumber");
     query.bindValue(":boxnumber", m_number);
     if (!query.exec()) qWarning() << tr("[BoxModel::refresh query error] %1").arg(query.lastError().text());
@@ -33,7 +35,26 @@ void BoxModel::refresh()
         updateMealMinimum(query.value(8).toInt());
         updateDetectionDelay(query.value(9).toInt());
         updateLastConnected(query.value(10).toDateTime());
+        updateNewDayTime(query.value(11).toTime());
     }
+}
+
+QTime BoxModel::globalNewDayTime()
+{
+    if (m_globalNewDayTime.isNull()) {
+        QSqlDatabase db = QSqlDatabase::database();
+
+        QSqlQuery query(db);
+        query.prepare("select newdaytime from box where boxnumber = :boxnumber");
+        query.bindValue(":boxnumber", 1);
+        if (!query.exec()) qWarning() << tr("[BoxModel::globalNewDayTime query error] %1").arg(query.lastError().text());
+        else if (!query.next()) qWarning() << tr("[BoxModel::globalNewDayTime returned no results for box number : %1").arg(1);
+        else {
+            m_globalNewDayTime = query.value(0).toTime();
+        }
+    }
+
+    return m_globalNewDayTime;
 }
 
 void BoxModel::setNumber(int number)
@@ -262,6 +283,29 @@ void BoxModel::updateDetectionDelay(int detectionDelay)
 {
     m_detectionDelay = detectionDelay;
     emit detectionDelayChanged(detectionDelay);
+}
+
+void BoxModel::setNewDayTime(QTime newDayTime)
+{
+    if (m_newDayTime == newDayTime)
+        return;
+
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) return;
+    QSqlQuery query(db);
+    query.prepare("UPDATE box SET newdaytime = :newdaytime WHERE boxnumber = :boxnumber");
+    query.bindValue(":newdaytime", newDayTime);
+    query.bindValue(":boxnumber", m_number);
+    if (!query.exec()) qWarning() << tr("[BoxModel::setNewDayTime query error] %1").arg(query.lastError().text());
+
+    updateNewDayTime(newDayTime);
+}
+
+void BoxModel::updateNewDayTime(QTime newDayTime)
+{
+    m_newDayTime = newDayTime;
+    m_globalNewDayTime = newDayTime;        // Trick to keep last value as global, we have a design flaw here because that time should always be the same for all boxes
+    emit newDayTimeChanged(newDayTime);
 }
 
 void BoxModel::updateLastConnected(QDateTime lastConnected)

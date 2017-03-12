@@ -188,6 +188,11 @@ Rectangle {
                     to: 50
                     value: boxModel.foodSpeedA
                     onValueChanged: boxModel.setFoodSpeedA(value)
+                    hoverEnabled: true
+                    ToolTip.delay: 1000
+                    ToolTip.timeout: 5000
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Speed calibration for food distribution in that box.")
                 }
             }
             RowLayout {
@@ -204,6 +209,11 @@ Rectangle {
                     to: 50
                     value: boxModel.foodSpeedB
                     onValueChanged: boxModel.setFoodSpeedB(value)
+                    hoverEnabled: true
+                    ToolTip.delay: 1000
+                    ToolTip.timeout: 5000
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Speed calibration for food distribution in that box.")
                 }
             }
         }
@@ -231,6 +241,12 @@ Rectangle {
                     to: 3600
                     value: boxModel.calibrationDuration
                     onValueChanged: boxModel.setCalibrationDuration(value)
+                    hoverEnabled: true
+                    ToolTip.delay: 1000
+                    ToolTip.timeout: 5000
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("When pressing the debug button on the electronic board.\n" +
+                                       "Amount of time the food is given (seconds)")
                 }
             }
             RowLayout {
@@ -247,10 +263,74 @@ Rectangle {
                     to: 1000
                     value: boxModel.mealMinimum
                     onValueChanged: boxModel.setMealMinimum(value)
+                    hoverEnabled: true
+                    ToolTip.delay: 1000
+                    ToolTip.timeout: 5000
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Minimum amount of food given in one chunk.")
                 }
             }
         }
 
+        Rectangle {
+            height: 1
+            Layout.fillWidth: true
+            color: "blue"
+        }
+
+        ComboBox {
+            id: roleComboBox
+            Layout.fillWidth: true
+            model: [qsTr("Food A"), qsTr("Food B"), qsTr("Number of visits"), qsTr("Meal counts")]
+            onCurrentIndexChanged: bars.max = 1
+        }
+
+        Rectangle {
+            id: backgroundRect
+            height: dp(300)
+            Layout.fillWidth: true
+
+            gradient: Gradient {
+                id: background
+                property color color: "lightblue"
+                GradientStop { position: 0.0; color: background.color }
+                GradientStop { position: 1.0; color: Qt.lighter(background.color) }
+            }
+
+            Repeater {
+                id: bars
+                model: boxModel.statsModel()
+                property real barWidth: backgroundRect.width / (2 * bars.model.rowCount() - 1)
+                property real max: 1
+
+                delegate: Rectangle {
+                    property real roleValue: roleComboBox.currentIndex == 0 ? Math.round(suma / 1000) : (roleComboBox.currentIndex == 1 ? Math.round(sumb / 1000) : (roleComboBox.currentIndex == 2 ? cowvisits : mealcounts))
+                    onRoleValueChanged: bars.max = Math.max(roleValue, bars.max)
+                    gradient: Gradient {
+                        id: pile
+                        property color color: "orange"
+                        GradientStop { position: 0.0; color: pile.color }
+                        GradientStop { position: 1.0; color: Qt.lighter(pile.color) }
+                    }
+
+                    anchors.bottom: parent.bottom
+                    height: backgroundRect.height * (roleValue / bars.max)
+                    width: bars.barWidth
+
+                    x: width + index * dp(2 * width)
+
+
+                    Text {
+                        anchors.left: parent.horizontalCenter
+                        anchors.bottom: parent.bottom
+                        text: Qt.formatDate(day, "dd/MM/yyyy") + " : " + roleValue + (roleComboBox.currentIndex < 2 ? " kg" : "")
+                        rotation: -90
+                        transformOrigin: Item.Left
+                    }
+                }
+
+            }
+        }
     }
 
 }

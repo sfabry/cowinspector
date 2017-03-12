@@ -42,13 +42,13 @@ ApplicationWindow {
                 icon: "../images/home_white.png"
                 expanded: menuLayout.expanded
                 qmlFile: "HomePage.qml"
+                checked: true
             }
 
             DrawerButton {
                 text: qsTr("Box")
                 expanded: menuLayout.expanded
                 qmlFile: "BoxPage.qml"
-                checked: true
             }
 
             DrawerButton {

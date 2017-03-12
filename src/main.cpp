@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<CowDaysModel>("CowInspector", 1, 0, "CowDaysModel");
     qmlRegisterType<CowMealsModel>("CowInspector", 1, 0, "CowMealsModel");
     qmlRegisterType<BoxModel>("CowInspector", 1, 0, "BoxModel");
+    qmlRegisterType<BoxStatsModel>("CowInspector", 1, 0, "BoxStatsModel");
 
     const QString& locale("fr");
     QTranslator translator;

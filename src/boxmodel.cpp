@@ -3,11 +3,15 @@
 #include <QtDebug>
 #include <QtSql>
 
+#include "boxstatsmodel.h"
+
 QTime BoxModel::m_globalNewDayTime = QTime();
 
 BoxModel::BoxModel(QObject *parent) :
-    QueryModel(parent)
+    QueryModel(parent),
+    m_statModel(new BoxStatsModel(this))
 {
+    connect(this, &BoxModel::numberChanged, m_statModel, &BoxStatsModel::setNumber);
 }
 
 void BoxModel::refresh()
@@ -56,6 +60,8 @@ QTime BoxModel::globalNewDayTime()
 
     return m_globalNewDayTime;
 }
+
+BoxStatsModel *BoxModel::statsModel() { return m_statModel; }
 
 void BoxModel::setNumber(int number)
 {

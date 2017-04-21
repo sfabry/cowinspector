@@ -17,8 +17,14 @@ Page {
         interval: 60 * 1000
         repeat: true
         running: true
-        triggeredOnStart: false
-        onTriggered: cowsModel.refresh()
+        triggeredOnStart: true
+        onTriggered: {
+            boxResume1.refreshModel()
+            boxResume2.refreshModel()
+            boxResume3.refreshModel()
+            boxResume4.refreshModel()
+            cowsModel.refresh()
+        }
     }
 
     RowLayout {
@@ -40,6 +46,42 @@ Page {
                 Component.onCompleted: calendar.selectedDate = cowsModel.summaryDate
                 onSelectedDateChanged: cowsModel.summaryDate = selectedDate
             }
+            
+            // add here a small item for each box showing connection status, and last day distribution or today current distribution is better.
+            BoxResumeItem {
+                id: boxResume1
+            	number: 1
+                statDay: calendar.selectedDate
+                totalFoodA: parent.totalBoxesFoodA
+                totalFoodB: parent.totalBoxesFoodB
+                Layout.minimumWidth: dp(300)
+            }
+            BoxResumeItem {
+                id: boxResume2
+                number: 2
+                statDay: calendar.selectedDate
+                totalFoodA: parent.totalBoxesFoodA
+                totalFoodB: parent.totalBoxesFoodB
+                Layout.minimumWidth: dp(300)
+            }
+            BoxResumeItem {
+                id: boxResume3
+                number: 3
+                statDay: calendar.selectedDate
+                totalFoodA: parent.totalBoxesFoodA
+                totalFoodB: parent.totalBoxesFoodB
+                Layout.minimumWidth: dp(300)
+            }
+            BoxResumeItem {
+                id: boxResume4
+                number: 4
+                statDay: calendar.selectedDate
+                totalFoodA: parent.totalBoxesFoodA
+                totalFoodB: parent.totalBoxesFoodB
+                Layout.minimumWidth: dp(300)
+            }
+            property int totalBoxesFoodA: boxResume1.boxFoodA + boxResume2.boxFoodA + boxResume3.boxFoodA + boxResume4.boxFoodA
+            property int totalBoxesFoodB: boxResume1.boxFoodB + boxResume2.boxFoodB + boxResume3.boxFoodB + boxResume4.boxFoodB
 
             Item { Layout.fillHeight: true }
 

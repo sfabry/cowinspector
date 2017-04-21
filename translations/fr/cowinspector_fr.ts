@@ -126,57 +126,67 @@ Amount of time the food is given (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="85"/>
+        <location filename="../../src/boxmodel.cpp" line="78"/>
+        <source>[BoxModel::totalFoodForDay query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="79"/>
+        <source>[BoxModel::totalFoodForDay returned no results for box number : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/boxmodel.cpp" line="106"/>
         <source>[BoxModel::setName query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="107"/>
+        <location filename="../../src/boxmodel.cpp" line="128"/>
         <source>[BoxModel::setIdleStart1 query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="129"/>
+        <location filename="../../src/boxmodel.cpp" line="150"/>
         <source>[BoxModel::setIdleStop1 query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="151"/>
+        <location filename="../../src/boxmodel.cpp" line="172"/>
         <source>[BoxModel::setIdleStart2 query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="173"/>
+        <location filename="../../src/boxmodel.cpp" line="194"/>
         <source>[BoxModel::setIdleStop2 query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="195"/>
+        <location filename="../../src/boxmodel.cpp" line="216"/>
         <source>[BoxModel::setFoodSpeedA query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="217"/>
+        <location filename="../../src/boxmodel.cpp" line="238"/>
         <source>[BoxModel::setFoodSpeedB query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="239"/>
+        <location filename="../../src/boxmodel.cpp" line="260"/>
         <source>[BoxModel::setCalibrationDuration query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="261"/>
+        <location filename="../../src/boxmodel.cpp" line="282"/>
         <source>[BoxModel::setMealMinimum query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="283"/>
+        <location filename="../../src/boxmodel.cpp" line="304"/>
         <source>[BoxModel::setDetectionDelay query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/boxmodel.cpp" line="305"/>
+        <location filename="../../src/boxmodel.cpp" line="326"/>
         <source>[BoxModel::setNewDayTime query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -195,6 +205,19 @@ Amount of time the food is given (seconds)</source>
     <message>
         <location filename="../../src/qml/BoxPage.qml" line="60"/>
         <source>CAUTION : All boxes do not have the same new day time, please change above to solve !</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BoxResumeItem</name>
+    <message>
+        <location filename="../../src/qml/BoxResumeItem.qml" line="70"/>
+        <source>Food A:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/BoxResumeItem.qml" line="83"/>
+        <source>Food B:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -334,17 +357,17 @@ Amount of time the food is given (seconds)</source>
         <translation type="obsolete">Arrive bientôt...</translation>
     </message>
     <message>
-        <location filename="../../src/qml/HomePage.qml" line="32"/>
+        <location filename="../../src/qml/HomePage.qml" line="38"/>
         <source>Day Summary</source>
         <translation type="unfinished">Résumé journée</translation>
     </message>
     <message>
-        <location filename="../../src/qml/HomePage.qml" line="104"/>
+        <location filename="../../src/qml/HomePage.qml" line="146"/>
         <source>A: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/qml/HomePage.qml" line="153"/>
+        <location filename="../../src/qml/HomePage.qml" line="195"/>
         <source>B: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -462,7 +485,7 @@ Amount of time the food is given (seconds)</source>
         <translation>Démarrer</translation>
     </message>
     <message>
-        <location filename="../../src/qml/desktop.qml" line="48"/>
+        <location filename="../../src/qml/desktop.qml" line="49"/>
         <source>Box</source>
         <translation>Box</translation>
     </message>

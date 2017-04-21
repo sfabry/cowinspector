@@ -43,6 +43,7 @@ public:
 
     static QTime globalNewDayTime();
     Q_INVOKABLE BoxStatsModel* statsModel();
+    Q_INVOKABLE QJsonObject totalFoodForDay(QDate day);
 
 public slots:
     void setNumber(int number);

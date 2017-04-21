@@ -63,6 +63,27 @@ QTime BoxModel::globalNewDayTime()
 
 BoxStatsModel *BoxModel::statsModel() { return m_statModel; }
 
+QJsonObject BoxModel::totalFoodForDay(QDate day)
+{
+    QJsonObject result;
+    result["foodA"] = 0;
+    result["foodB"] = 0;
+
+    QSqlDatabase db = QSqlDatabase::database();
+
+    QSqlQuery query(db);
+    query.prepare(QString("select sum(fooda) as suma, sum(foodb) as sumb from meals where box = :boxnumber and date(entry - time '%1') = :day").arg(BoxModel::globalNewDayTime().toString("hh:mm:ss")));
+    query.bindValue(":boxnumber", m_number);
+    query.bindValue(":day", day);
+    if (!query.exec()) qWarning() << tr("[BoxModel::totalFoodForDay query error] %1").arg(query.lastError().text());
+    else if (!query.next()) qWarning() << tr("[BoxModel::totalFoodForDay returned no results for box number : %1").arg(m_number);
+    else {
+        result["foodA"] = query.value(0).toInt();
+        result["foodB"] = query.value(1).toInt();
+    }
+    return result;
+}
+
 void BoxModel::setNumber(int number)
 {
     if (m_number == number) return;

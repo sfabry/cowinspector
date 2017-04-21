@@ -7,6 +7,7 @@ Rectangle {
     property real total: 1.0
     property real value: 0.4
     property string prefix: ""
+    property real warningThreshold: 0.75
 
     implicitHeight: dp(20)
     implicitWidth: dp(100)
@@ -18,7 +19,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.margins: 1
-        color: value / total > 0.75 ? "green" : "orange"
+        color: value / total > warningThreshold ? "green" : "orange"
         width: Math.min(parent.width - 2, parent.width * value / total)
     }
 

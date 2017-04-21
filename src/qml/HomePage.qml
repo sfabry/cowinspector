@@ -40,6 +40,24 @@ Page {
                 Component.onCompleted: calendar.selectedDate = cowsModel.summaryDate
                 onSelectedDateChanged: cowsModel.summaryDate = selectedDate
             }
+            
+            // add here a small item for each box showing connection status, and last day distribution or today current distribution is better.
+            BoxResumeItem {
+            	number: 1
+            	Layout.fillWidth: true
+            }
+            BoxResumeItem {
+            	number: 2
+            	Layout.fillWidth: true
+            }
+               BoxResumeItem {
+            	number: 3
+            	Layout.fillWidth: true
+            }
+            BoxResumeItem {
+            	number: 4
+            	Layout.fillWidth: true
+            }                   
 
             Item { Layout.fillHeight: true }
 

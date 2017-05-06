@@ -6,101 +6,102 @@
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="20"/>
         <source> min</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="24"/>
         <source> gr/s</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="28"/>
         <source> s</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="32"/>
         <source> gr</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="85"/>
         <source>Idle schedule 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Période d&apos;arrêt 1</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="91"/>
         <location filename="../../src/qml/BoxItem.qml" line="135"/>
         <source>Starts from :</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarre de :</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="107"/>
         <location filename="../../src/qml/BoxItem.qml" line="151"/>
         <source>Duration :</source>
-        <translation type="unfinished"></translation>
+        <translation>Durée :</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="129"/>
         <source>Idle schedule 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Période d&apos;arrêt 2</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="179"/>
         <source>Food speed A :</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse aliment A :</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="195"/>
         <location filename="../../src/qml/BoxItem.qml" line="216"/>
         <source>Speed calibration for food distribution in that box.</source>
-        <translation type="unfinished"></translation>
+        <translation>Calibration de la vitesse pour la distribution dans ce box.</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="200"/>
         <source>Food speed B :</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse aliment B :</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="232"/>
         <source>Calib. duration :</source>
-        <translation type="unfinished"></translation>
+        <translation>Calib durée :</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="248"/>
         <source>When pressing the debug button on the electronic board.
 Amount of time the food is given (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Durée de la distribution quand on presse le bouton
+sur la carte électronique (secondes)</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="254"/>
         <source>Meal minimum :</source>
-        <translation type="unfinished"></translation>
+        <translation>Repas minimum :</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="270"/>
         <source>Minimum amount of food given in one chunk.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quantité minimum dictribuée en une fois.</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="284"/>
         <source>Food A</source>
-        <translation type="unfinished">aliment A</translation>
+        <translation>aliment A</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="284"/>
         <source>Food B</source>
-        <translation type="unfinished">aliment B</translation>
+        <translation>aliment B</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="284"/>
         <source>Number of visits</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de visites</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxItem.qml" line="284"/>
         <source>Meal counts</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de repas</translation>
     </message>
 </context>
 <context>
@@ -200,12 +201,12 @@ Amount of time the food is given (seconds)</source>
     <message>
         <location filename="../../src/qml/BoxPage.qml" line="38"/>
         <source>All boxes new day time : </source>
-        <translation type="unfinished"></translation>
+        <translation>Heure de début de journée pour tous les boxes :</translation>
     </message>
     <message>
         <location filename="../../src/qml/BoxPage.qml" line="60"/>
         <source>CAUTION : All boxes do not have the same new day time, please change above to solve !</source>
-        <translation type="unfinished"></translation>
+        <translation>ATTENTION : Tous les boxes n&apos;ont pas la même heure de démarrage, changez ci-dessus pour résoudre !</translation>
     </message>
 </context>
 <context>
@@ -213,12 +214,12 @@ Amount of time the food is given (seconds)</source>
     <message>
         <location filename="../../src/qml/BoxResumeItem.qml" line="70"/>
         <source>Food A:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aliment A :</translation>
     </message>
     <message>
-        <location filename="../../src/qml/BoxResumeItem.qml" line="83"/>
+        <location filename="../../src/qml/BoxResumeItem.qml" line="81"/>
         <source>Food B:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aliment B :</translation>
     </message>
 </context>
 <context>

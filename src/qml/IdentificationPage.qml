@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtQuick.Dialogs 1.1
 import CowInspector 1.0
 import QtQuick.Controls.Material 2.0
 
@@ -15,6 +16,17 @@ Page {
 
     property int rfidColumnWidth: dp(250)
     property int cardColumnWidth: dp(150)
+
+    MessageDialog {
+        id: confirmDialog
+        property int cow
+        title: qsTr("Cow removal")
+        text: qsTr("Are you sure to delete cow %1?").arg(cow)
+        standardButtons: StandardButton.Yes | StandardButton.Cancel
+        onAccepted: {
+            identificationModel.deleteCow(cow)
+        }
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -81,16 +93,28 @@ Page {
                         Layout.minimumHeight: childrenRect.height
 
                         TextField {
+                            id: cowField
                             anchors.centerIn: parent
                             text: cownumber
+                            enabled: !cownumber
                             placeholderText: qsTr("Click to assign a cow")
                             horizontalAlignment: Text.AlignHCenter
                             onEditingFinished: {
                                 identificationModel.assignCow(text, rfid)
                             }
                         }
+                        Button {
+                            text: qsTr("Delete cow")
+                            enabled: cownumber
+                            anchors.verticalCenter: cowField.verticalCenter
+                            anchors.left: cowField.right
+                            anchors.leftMargin: 20
+                            onClicked: {
+                                confirmDialog.cow = cownumber
+                                confirmDialog.setVisible(true)
+                            }
+                        }
                     }
-
                 }
             }
         }

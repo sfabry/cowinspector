@@ -13,6 +13,7 @@ public:
 
 public slots:
     void assignCow(int cow, const QString &rfid);
+    void deleteCow(int cow);
 
 };
 

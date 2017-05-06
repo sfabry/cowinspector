@@ -390,28 +390,72 @@ sur la carte électronique (secondes)</translation>
         <source>[IdentificationModel insert into foodallocation query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../src/identificationModel.cpp" line="61"/>
+        <source>[IdentificationModel::deleteCow select count query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/identificationModel.cpp" line="67"/>
+        <source>[IdentificationModel::deleteCow backup query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/identificationModel.cpp" line="72"/>
+        <source>[IdentificationModel::deleteCow DELETE meals query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/identificationModel.cpp" line="77"/>
+        <source>[IdentificationModel::deleteCow DELETE foodallocation query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/identificationModel.cpp" line="82"/>
+        <source>[IdentificationModel::deleteCow UPDATE identification query error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IdentificationPage</name>
     <message>
-        <location filename="../../src/qml/IdentificationPage.qml" line="27"/>
+        <location filename="../../src/qml/IdentificationPage.qml" line="24"/>
+        <source>Are you sure to delete cow %1?</source>
+        <translation>Etes-vous sûr de supprimer la vache %1 ?</translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/IdentificationPage.qml" line="39"/>
         <source>RFID number</source>
         <translation>Nombre RFID</translation>
     </message>
     <message>
-        <location filename="../../src/qml/IdentificationPage.qml" line="32"/>
+        <location filename="../../src/qml/IdentificationPage.qml" line="44"/>
         <source>Card number</source>
         <translation>Numéro de la carte</translation>
     </message>
     <message>
-        <location filename="../../src/qml/IdentificationPage.qml" line="37"/>
+        <location filename="../../src/qml/IdentificationPage.qml" line="49"/>
         <source>Cow number</source>
         <translation>Numéro de la vache</translation>
     </message>
     <message>
-        <location filename="../../src/qml/IdentificationPage.qml" line="86"/>
+        <location filename="../../src/qml/IdentificationPage.qml" line="100"/>
         <source>Click to assign a cow</source>
         <translation>Cliquer pour assigner une vache</translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/IdentificationPage.qml" line="107"/>
+        <source>Delete cow</source>
+        <translation>Supprimer</translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/IdentificationPage.qml" line="23"/>
+        <source>Cow removal</source>
+        <translation>Supression de la vache</translation>
+    </message>
+    <message>
+        <source>Are you sure to delete cow ?</source>
+        <translation type="vanished">Etes-vous sûr de supprimer la vache ?</translation>
     </message>
 </context>
 <context>

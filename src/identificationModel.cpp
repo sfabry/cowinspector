@@ -45,3 +45,41 @@ void IdentificationModel::assignCow(int cow, const QString &rfid)
     query.bindValue(":cow",  cow);
     if (!query.exec()) qWarning() << tr("[IdentificationModel insert into foodallocation query error] %1").arg(query.lastError().text());
 }
+
+void IdentificationModel::deleteCow(int cow)
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) return;
+    QSqlQuery query(db);
+
+    // Backup dans un nouveau record le total de la vache par box. Code vache name 10000 + cow for example.
+    int cowBackup = cow;
+    do {
+        cowBackup += 10000;
+        query.prepare("select count(cow) from meals where cow = :cow");
+        query.bindValue(":cow",  cowBackup);
+        if (!query.exec()) qWarning() << tr("[IdentificationModel::deleteCow select count query error] %1").arg(query.lastError().text());
+    } while(query.size() == 0);
+    query.prepare("insert into meals (cow, box, fooda, foodb, entry, exit) "
+                  "select :cowBackup, box, sum(fooda) as suma, sum(foodb) as sumb, min(entry) as entry, max(exit) as exit from meals where cow = :cow group by box");
+    query.bindValue(":cow",  cow);
+    query.bindValue(":cowBackup",  cowBackup);
+    if (!query.exec()) qWarning() << tr("[IdentificationModel::deleteCow backup query error] %1").arg(query.lastError().text());
+
+    // Empty meal table
+    query.prepare("DELETE from meals WHERE cow = :cow");
+    query.bindValue(":cow",  cow);
+    if (!query.exec()) qWarning() << tr("[IdentificationModel::deleteCow DELETE meals query error] %1").arg(query.lastError().text());
+
+    // Empty food allocation table
+    query.prepare("DELETE from foodallocation WHERE cow = :cow");
+    query.bindValue(":cow",  cow);
+    if (!query.exec()) qWarning() << tr("[IdentificationModel::deleteCow DELETE foodallocation query error] %1").arg(query.lastError().text());
+
+    // Reset identification record
+    query.prepare("UPDATE identification SET cownumber = null WHERE cownumber = :cow");
+    query.bindValue(":cow",  cow);
+    if (!query.exec()) qWarning() << tr("[IdentificationModel::deleteCow UPDATE identification query error] %1").arg(query.lastError().text());
+
+    refresh();
+}

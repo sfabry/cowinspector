@@ -333,12 +333,12 @@ sur la carte électronique (secondes)</translation>
 <context>
     <name>CowsModel</name>
     <message>
-        <location filename="../../src/cowsmodel.cpp" line="31"/>
+        <location filename="../../src/cowsmodel.cpp" line="28"/>
         <source>[CowsModel query error] %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/cowsmodel.cpp" line="67"/>
+        <location filename="../../src/cowsmodel.cpp" line="64"/>
         <source>[CowsModel::setCowAllocation query error] %1 - %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -381,37 +381,37 @@ sur la carte électronique (secondes)</translation>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/identificationModel.cpp" line="41"/>
+        <location filename="../../src/identificationModel.cpp" line="40"/>
         <source>[IdentificationModel UPDATE identification query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/identificationModel.cpp" line="46"/>
+        <location filename="../../src/identificationModel.cpp" line="45"/>
         <source>[IdentificationModel insert into foodallocation query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/identificationModel.cpp" line="61"/>
+        <location filename="../../src/identificationModel.cpp" line="60"/>
         <source>[IdentificationModel::deleteCow select count query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/identificationModel.cpp" line="67"/>
+        <location filename="../../src/identificationModel.cpp" line="66"/>
         <source>[IdentificationModel::deleteCow backup query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/identificationModel.cpp" line="72"/>
+        <location filename="../../src/identificationModel.cpp" line="71"/>
         <source>[IdentificationModel::deleteCow DELETE meals query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/identificationModel.cpp" line="77"/>
+        <location filename="../../src/identificationModel.cpp" line="76"/>
         <source>[IdentificationModel::deleteCow DELETE foodallocation query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/identificationModel.cpp" line="82"/>
+        <location filename="../../src/identificationModel.cpp" line="81"/>
         <source>[IdentificationModel::deleteCow UPDATE identification query error] %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -461,9 +461,32 @@ sur la carte électronique (secondes)</translation>
 <context>
     <name>LogsModel</name>
     <message>
-        <location filename="../../src/logsmodel.cpp" line="37"/>
+        <location filename="../../src/logsmodel.cpp" line="36"/>
+        <source>[LogsModel dumpAllTraces error] %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/logsmodel.cpp" line="47"/>
         <source>[LogsModel query error] %1</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>LogsPage</name>
+    <message>
+        <location filename="../../src/qml/LogsPage.qml" line="60"/>
+        <source>Delete all logs</source>
+        <translation>Supprimer tous les logs</translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/LogsPage.qml" line="68"/>
+        <source>Log removal</source>
+        <translation>Suppression des logs</translation>
+    </message>
+    <message>
+        <location filename="../../src/qml/LogsPage.qml" line="69"/>
+        <source>Are you sure to delete all logs from database ?</source>
+        <translation>Etes-ous sûr de vouloir supprimer tous les logs de la base de donnée ?</translation>
     </message>
 </context>
 <context>

@@ -22,7 +22,7 @@ Page {
         property int cow
         title: qsTr("Cow removal")
         text: qsTr("Are you sure to delete cow %1?").arg(cow)
-        standardButtons: StandardButton.Yes | StandardButton.Cancel
+        standardButtons: StandardButton.Ok | StandardButton.Cancel
         onAccepted: {
             identificationModel.deleteCow(cow)
         }

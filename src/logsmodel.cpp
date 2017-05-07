@@ -26,6 +26,17 @@ void LogsModel::setWarnActive(bool warnActive)
     emit warnActiveChanged(warnActive);
 }
 
+void LogsModel::dumpAllTraces()
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) return;
+
+    QSqlQuery query(db);
+    query.prepare("DELETE FROM logevents;");
+    if (!query.exec()) qWarning() << tr("[LogsModel dumpAllTraces error] %1").arg(query.lastError().text());
+    refresh();
+}
+
 void LogsModel::refresh()
 {
     QSqlDatabase db = QSqlDatabase::database();
@@ -33,7 +44,6 @@ void LogsModel::refresh()
 
     QSqlQuery query(db);
     query.prepare("SELECT id, time, message, level FROM logevents ORDER BY id DESC");
-//    query.bindValue(":deviceId", QString(m_deviceId));
     if (!query.exec()) qWarning() << tr("[LogsModel query error] %1").arg(query.lastError().text());
     else this->setQuery(query);
 }

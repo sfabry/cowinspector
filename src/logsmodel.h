@@ -23,6 +23,7 @@ signals:
 public slots:
     void setDebugActive(bool debugActive);
     void setWarnActive(bool warnActive);
+    void dumpAllTraces();
 
 private:
     bool m_debugActive = true;

@@ -28,7 +28,6 @@ void IdentificationModel::assignCow(int cow, const QString &rfid)
     QSqlQuery query(db);
 
     // Check if identification does not already contains this cow, or this RFID !
-    // TODO_M: see later how we will deal with those cases
     if (rowOf(cow, "cownumber") >= 0) {
         qWarning() << "This cow is already set to another RFID";
         return;
